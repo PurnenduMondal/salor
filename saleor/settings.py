@@ -98,14 +98,14 @@ DATABASE_CONNECTION_DEFAULT_NAME = "default"
 # We need to update docs an saleor platform.
 # This variable should be set to `replica`
 DATABASE_CONNECTION_REPLICA_NAME = "replica"
-
+DATABASE_CONNECTION_STRING = os.environ.get("DATABASE_CONNECTION_STRING")
 DATABASES = {
     DATABASE_CONNECTION_DEFAULT_NAME: dj_database_url.config(
-        default="postgres://saleor_user:yourpassword@localhost:5432/saleor",
+        default=DATABASE_CONNECTION_STRING,
         conn_max_age=DB_CONN_MAX_AGE,
     ),
     DATABASE_CONNECTION_REPLICA_NAME: dj_database_url.config(
-        default="postgres://saleor_user:yourpassword@localhost:5432/saleor",
+        default=DATABASE_CONNECTION_STRING,
         # TODO: We need to add read only user to saleor platform,
         # and we need to update docs.
         # default="postgres://saleor_read_only:saleor@localhost:5432/saleor",
