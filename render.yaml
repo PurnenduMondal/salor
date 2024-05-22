@@ -12,6 +12,7 @@ services:
     buildCommand: "./build.sh"
     startCommand: "python -m gunicorn saleor.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars:
+      - key: PYTHON_VERSION
       - key: DATABASE_CONNECTION_STRING
         fromDatabase:
           name: oimyuaws
