@@ -1,0 +1,22 @@
+databases:
+  - name: oimyuaws
+    plan: free
+    databaseName: oimyuaws
+    user: spibceyq
+
+services:
+  - type: web
+    plan: free
+    name: saleor
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn saleor.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: DATABASE_CONNECTION_STRING
+        fromDatabase:
+          name: oimyuaws
+          property: postgresql://spibceyq:ydbhqmrpwhkdpmmfumbu@alpha.india.mkdb.sh:5432/oimyuaws
+      - key: 9itzz3-@c*u3%f#%fg-frp*@j7!8q4k(v^$bn!_04#211%761g
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4

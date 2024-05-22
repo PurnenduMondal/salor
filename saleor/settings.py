@@ -229,6 +229,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.middleware.common.CommonMiddleware",
     "saleor.core.middleware.jwt_refresh_token_middleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 INSTALLED_APPS = [
