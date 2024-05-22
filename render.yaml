@@ -15,8 +15,8 @@ services:
       - key: DATABASE_CONNECTION_STRING
         fromDatabase:
           name: oimyuaws
-          property: postgresql://spibceyq:ydbhqmrpwhkdpmmfumbu@alpha.india.mkdb.sh:5432/oimyuaws
-      - key: 9itzz3-@c*u3%f#%fg-frp*@j7!8q4k(v^$bn!_04#211%761g
+          property: connectionString
+      - key: SECRET_KEY
         generateValue: true
       - key: WEB_CONCURRENCY
         value: 4
