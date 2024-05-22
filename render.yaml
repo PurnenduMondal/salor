@@ -13,6 +13,7 @@ services:
     startCommand: "python -m gunicorn saleor.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars:
       - key: PYTHON_VERSION
+        value: 3.9
       - key: DATABASE_CONNECTION_STRING
         fromDatabase:
           name: oimyuaws
