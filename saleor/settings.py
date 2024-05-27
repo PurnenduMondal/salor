@@ -6,7 +6,7 @@ import warnings
 from datetime import timedelta
 from typing import Optional
 from urllib.parse import urlparse
-
+from pathlib import Path
 import dj_database_url
 import dj_email_url
 import django_cache_url
@@ -74,6 +74,22 @@ MANAGERS = ADMINS
 APPEND_SLASH = False
 
 _DEFAULT_CLIENT_HOSTS = "localhost,127.0.0.1"
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.0/howto/static-files/
+
+# This setting informs Django of the URI path from which your static files will be served to users
+# Here, they well be accessible at your-domain.onrender.com/static/... or yourcustomdomain.com/static/...
+STATIC_URL = '/static/'
+
+# This production code might break development mode, so we check whether we're in DEBUG mode
+if not DEBUG:
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
+    # and renames the files with unique names for each version to support long-term caching
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ALLOWED_CLIENT_HOSTS = os.environ.get("ALLOWED_CLIENT_HOSTS")
 if not ALLOWED_CLIENT_HOSTS:
