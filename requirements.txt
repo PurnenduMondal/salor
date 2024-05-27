@@ -189,7 +189,6 @@ ruamel.yaml.clib==0.2.8
 ruff==0.2.2
 Rx==1.6.3
 s3transfer==0.10.0
--e git+https://github.com/PurnenduMondal/salor.git@dcd44057bbf4ea1925c9ed4883a5994bf00d13ed#egg=saleor
 semantic-version==2.10.0
 semgrep==1.52.0
 sendgrid==6.11.0
